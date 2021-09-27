@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Import Containers
 import { DefaultLayoutComponent } from './containers';
+import { UsersComponent } from './users/users.component';
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
@@ -38,11 +39,18 @@ export const routes: Routes = [
   },
   {
     path: 'register',
-    component: RegisterComponent,
+    component: UsersComponent,
     data: {
       title: 'Register Page'
     }
   },
+  // {
+  //   path: 'UserRegister',
+  //   component: UsersComponent,
+  //   data: {
+  //     title: 'Register user'
+  //   }
+  // },
   {
     path: '',
     component: DefaultLayoutComponent,
