@@ -29,6 +29,9 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { ToasterModule, ToasterService } from 'angular2-toaster';
+import { UsersComponent } from './users/users.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -44,7 +47,10 @@ import { ToasterModule, ToasterService } from 'angular2-toaster';
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule,
-    ToasterModule
+    ToasterModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   declarations: [
     AppComponent,
@@ -52,7 +58,8 @@ import { ToasterModule, ToasterService } from 'angular2-toaster';
     P404Component,
     P500Component,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    UsersComponent
   ],
   providers: [{
     provide: LocationStrategy,
