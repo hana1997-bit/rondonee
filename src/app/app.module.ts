@@ -32,6 +32,7 @@ import { ToasterModule, ToasterService } from 'angular2-toaster';
 import { UsersComponent } from './users/users.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { UserLoginComponent } from './user-login/user-login.component';
 
 @NgModule({
   imports: [
@@ -59,7 +60,8 @@ import { HttpClientModule } from '@angular/common/http';
     P500Component,
     LoginComponent,
     RegisterComponent,
-    UsersComponent
+    UsersComponent,
+    UserLoginComponent
   ],
   providers: [{
     provide: LocationStrategy,

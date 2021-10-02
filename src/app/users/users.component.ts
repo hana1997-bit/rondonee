@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { UserService } from '../services/user.service';
-// import { ngForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -13,6 +14,7 @@ export class UsersComponent implements OnInit {
   myres: any;
   form: FormGroup;
   user = {
+    image:"",
     firstName: "",
     lastName: "",
     age: 0,
@@ -20,70 +22,33 @@ export class UsersComponent implements OnInit {
     password: "",
     phone:""
   }
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,private route :Router) { }
 
   ngOnInit() {
+    this.form = new FormGroup({
+      firstName: new FormControl('', Validators.required),
+      image:new FormControl(''),
+      lastName: new FormControl('', Validators.required),
+      age: new FormControl('', Validators.required),
+      phone: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
+      // local: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.email]),
 
-    this.userService.getUserList().subscribe(res => {
-      this.myres = res
     });
-    // this.form = new FormGroup({
-    //   firstName: new FormControl('', Validators.required),
-    //   lastName: new FormControl('', Validators.required),
-    //   age: new FormControl('', Validators.required),
-    //   // genre: new FormControl('', Validators.required),
-    //   password: new FormControl('', Validators.required),
-    //   // local: new FormControl('', Validators.required),
-    //   email: new FormControl('', [Validators.required, Validators.email]),
-
-    // });
   }
   submitForm() {
-    const body = {
-      firstName: this.user.firstName,
-      lastName: this.user.lastName,
-      age: this.user.age,
-      email: this.user.email,
-      phone: this.user.phone,
-
-      password: this.user.password
-    }
-    this.userService.create(body).subscribe(
+    this.userService.create(this.form.value).subscribe(
       res => {
         console.log(res)
       }, error => {
         console.log(error);
       }
-    )
+    );
+    this.route.navigate(['/UserLogin'])
 
   }
 }
-  // submitForm() {
-  //   if (form)
-  //     form.reset();
-  //   this.userService.selectedUser = {
-  //     _id: "",
-  //     firstName: "",
-  //     lastName: "",
-  //     email: "",
-  //     password: "",
-  //     age: 0
-  //   }
-  // }
+  
 
-  // onSubmit(form: form) {
-  //   if (form.value._id == "") {
-  //     this.userService.create(form.value).subscribe((res) => {
-  //       this.resetForm(form);
-  //       // M.toast({ html: 'Saved successfully', classes: 'rounded' });
-  //     });
-  //   }
-  //   // else {
-  //   //   this.userService.putUser(form.value).subscribe((res) => {
-  //   //     this.resetForm(form);
-  //   //     // M.toast({ html: 'Updated successfully', classes: 'rounded' });
-  //   //   });
-  //   // }
-  // }
-
-// }
+ 

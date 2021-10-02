@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Import Containers
 import { DefaultLayoutComponent } from './containers';
+import { UserLoginComponent } from './user-login/user-login.component';
 import { UsersComponent } from './users/users.component';
 
 import { P404Component } from './views/error/404.component';
@@ -39,18 +40,25 @@ export const routes: Routes = [
   },
   {
     path: 'register',
-    component: UsersComponent,
+    component: RegisterComponent,
     data: {
       title: 'Register Page'
     }
   },
-  // {
-  //   path: 'UserRegister',
-  //   component: UsersComponent,
-  //   data: {
-  //     title: 'Register user'
-  //   }
-  // },
+  {
+    path: 'UserRegister',
+    component: UsersComponent,
+    data: {
+      title: 'Register user'
+    }
+  },
+  {
+    path: 'UserLogin',
+    component: UserLoginComponent,
+    data: {
+      title: 'Login user'
+    }
+  },
   {
     path: '',
     component: DefaultLayoutComponent,

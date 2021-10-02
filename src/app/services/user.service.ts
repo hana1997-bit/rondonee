@@ -16,7 +16,12 @@ export class UserService {
   create(body:any): Observable<any>{
     return this.http.post('http://localhost:3000/singup', body);
   }
-
+  login(body:any): Observable<any>{
+    return this.http.post('http://localhost:3000/singin', body);
+  }
+  reset(body:any): Observable<any>{
+    return this.http.post('http://localhost:3000/reset', body);
+  }
   getUserList() {
     return this.http.get('http://localhost:3000/users');
   }
