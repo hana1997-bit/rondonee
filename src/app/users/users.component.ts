@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { ToasterService } from 'angular2-toaster';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 
@@ -11,18 +11,10 @@ import { Router } from '@angular/router';
   providers: [UserService],
 })
 export class UsersComponent implements OnInit {
-  myres: any;
+  
   form: FormGroup;
-  user = {
-    image:"",
-    firstName: "",
-    lastName: "",
-    age: 0,
-    email: "",
-    password: "",
-    phone:""
-  }
-  constructor(private userService: UserService,private route :Router) { }
+
+  constructor(private toasterService: ToasterService,private userService: UserService,private route :Router) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -32,7 +24,6 @@ export class UsersComponent implements OnInit {
       age: new FormControl('', Validators.required),
       phone: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
-      // local: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
 
     });
@@ -40,8 +31,10 @@ export class UsersComponent implements OnInit {
   submitForm() {
     this.userService.create(this.form.value).subscribe(
       res => {
+        this.toasterService.pop('success', 'Success register', res.message);
         console.log(res)
       }, error => {
+        this.toasterService.pop('error', 'Error', error.error.message);
         console.log(error);
       }
     );
