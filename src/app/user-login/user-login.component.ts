@@ -20,13 +20,13 @@ export class UserLoginComponent implements OnInit {
     });
   }
   login(){
-    this.userService.login(this.form).subscribe(
+    this.userService.login(this.form.value).subscribe(
       res => {
       this.toasterService.pop('success', 'Success Login', res.message);
         console.log(res);
         localStorage.setItem('token', res.token);
       }, error => {
-        this.toasterService.pop('error', 'Error', error.error.message);
+        // this.toasterService.pop('error', 'Error', res.message);
         console.log(error);
       }
     );

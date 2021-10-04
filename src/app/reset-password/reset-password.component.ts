@@ -13,24 +13,29 @@ export class ResetPasswordComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private toasterService: ToasterService,private userService: UserService,private route :Router) { }
+  constructor(private toasterService: ToasterService, private userService: UserService, private route: Router) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
     });
   }
-  send(){
-    this.userService.reset(this.form.value).subscribe(
-      res => {
-        this.toasterService.pop('success', 'Success send', res.message);
-        console.log(res)
-      }, error => {
-        this.toasterService.pop('error', 'Error', error.error.message);
-        console.log(error);
-      }
-    );
-    this.route.navigate(['/UserLogin'])
+  send() {
+    if (this.form.invalid) {
+      return
+    } else {
+      this.userService.reset(this.form.value).subscribe(
+        res => {
+          this.toasterService.pop('success', 'Success send', res.message);
+          console.log(res);
+          if (res.message === "check your mail") { this.route.navigate(['/newPass/:'+res.userId+'/:'+res.token]); }
+        }, error => {
+          this.toasterService.pop('error', 'Error', error.error.message);
+          console.log(error);
+        }
+      );
+
+    }
   }
 
 }

@@ -34,6 +34,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { NewPasswordComponent } from './new-password/new-password.component';
 
 @NgModule({
   imports: [
@@ -63,7 +64,8 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     RegisterComponent,
     UsersComponent,
     UserLoginComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    NewPasswordComponent
   ],
   providers: [{
     provide: LocationStrategy,

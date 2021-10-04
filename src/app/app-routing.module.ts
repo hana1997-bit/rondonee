@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Import Containers
 import { DefaultLayoutComponent } from './containers';
+import { NewPasswordComponent } from './new-password/new-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UsersComponent } from './users/users.component';
 
@@ -44,6 +46,14 @@ export const routes: Routes = [
     data: {
       title: 'Register Page'
     }
+  },
+  {
+    path: 'reset',
+    component: ResetPasswordComponent,
+  },
+  {
+    path: 'newPass/:userId/:token',
+    component: NewPasswordComponent,
   },
   {
     path: 'UserRegister',
