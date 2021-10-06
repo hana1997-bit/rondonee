@@ -27,8 +27,8 @@ export class ResetPasswordComponent implements OnInit {
       this.userService.reset(this.form.value).subscribe(
         res => {
           this.toasterService.pop('success', 'Success send', res.message);
-          console.log(res);
-          if (res.message === "check your mail") { this.route.navigate(['/newPass/:'+res.userId+'/:'+res.token]); }
+          console.log(res.message);
+          
         }, error => {
           this.toasterService.pop('error', 'Error', error.error.message);
           console.log(error);

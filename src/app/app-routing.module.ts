@@ -52,7 +52,7 @@ export const routes: Routes = [
     component: ResetPasswordComponent,
   },
   {
-    path: 'newPass/:userId/:token',
+    path: 'newPass/:token/:id',
     component: NewPasswordComponent,
   },
   {

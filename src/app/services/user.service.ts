@@ -26,9 +26,9 @@ export class UserService {
     return this.http.get('http://localhost:3000/users');
   }
 
-  // putUser(user: User) {
-  //   return this.http.put('http://localhost:3000/users' + `/${user._id}`, user);
-  // }
+  changePass(body:any) {
+    return this.http.patch('http://localhost:3000/:token/:userId' ,body);
+  }
 
   deleteUser(_id: string) {
     return this.http.delete('http://localhost:3000/users' + `/${_id}`);
