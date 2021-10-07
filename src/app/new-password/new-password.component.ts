@@ -18,15 +18,14 @@ export class NewPasswordComponent implements OnInit {
   ngOnInit(): void {
     this.form = new FormGroup({
       password: new FormControl('', [Validators.required, Validators.email]),
+      userId: new FormControl(''),
+      token: new FormControl(''),
     });
-   this.id=this.activatetRoute.snapshot.params['id'];
-   this.token=this.activatetRoute.snapshot.params['token'];
-   console.log(this.id);
-    console.log(this.token);
-    
   }
   change(){
-
+    this.form.value.userId=this.activatetRoute.snapshot.params['id'];
+   this.form.value.token=this.activatetRoute.snapshot.params['token'];
+    
     this.userService.changePass(this.form.value).subscribe(
       res => {
         // this.toasterService.pop('success', 'Success send');
