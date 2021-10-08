@@ -28,8 +28,10 @@ export class NewPasswordComponent implements OnInit {
     
     this.userService.changePass(this.form.value).subscribe(
       res => {
-        // this.toasterService.pop('success', 'Success send');
+        // this.toasterService.pop('success', 'Success send',res);
           console.log(res);
+    this.route.navigate(['/UserLogin'])
+
       }, error => {
         this.toasterService.pop('error', 'Error', error.error.message);
         console.log(error);

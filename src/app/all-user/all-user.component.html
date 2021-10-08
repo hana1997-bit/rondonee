@@ -1,0 +1,13 @@
+
+<ul class="list-group" *ngFor='let ares of user'>
+    <li class="list-group-item">{{ares.firstName}}</li>
+    <li class="list-group-item">{{ares.lastName}}</li>
+    <li class="list-group-item">{{ares.email}}</li>
+    <li class="list-group-item">{{ares.age}}</li>
+    <li class="list-group-item">{{ares.phone}}</li>
+    <li class="list-group-item"><button (click)="edit(ares)">edit</button></li>
+    <li class="list-group-item"><button (click)="delete(ares)">delete</button></li>
+
+
+
+</ul>

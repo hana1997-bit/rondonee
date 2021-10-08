@@ -35,6 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { NewPasswordComponent } from './new-password/new-password.component';
+import { AllUserComponent } from './all-user/all-user.component';
 
 @NgModule({
   imports: [
@@ -65,7 +66,8 @@ import { NewPasswordComponent } from './new-password/new-password.component';
     UsersComponent,
     UserLoginComponent,
     ResetPasswordComponent,
-    NewPasswordComponent
+    NewPasswordComponent,
+    AllUserComponent
   ],
   providers: [{
     provide: LocationStrategy,

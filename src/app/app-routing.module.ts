@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AllUserComponent } from './all-user/all-user.component';
 
 // Import Containers
 import { DefaultLayoutComponent } from './containers';
@@ -50,6 +51,10 @@ export const routes: Routes = [
   {
     path: 'reset',
     component: ResetPasswordComponent,
+  },
+  {
+    path: 'all',
+    component: AllUserComponent,
   },
   {
     path: 'newPass/:token/:id',
