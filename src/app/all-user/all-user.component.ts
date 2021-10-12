@@ -16,6 +16,8 @@ export class AllUserComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUserList().subscribe(res => {
       this.user = res
+      console.log(res[2].image);
+      
     });
   }
   delete(data) {
