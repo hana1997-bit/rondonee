@@ -5,7 +5,7 @@
     <li class="list-group-item">{{ares.email}}</li>
     <li class="list-group-item">{{ares.age}}</li>
     <li class="list-group-item">{{ares.phone}}</li>
-    <li class="list-group-item"><img [src]="ares.image" alt=""></li>
+    <li class="list-group-item" *ngIf="ares.image!=undefined"><img src="http://localhost:3000/{{ares.image}}" alt=""></li>
 
     <li class="list-group-item"><button (click)="edit(ares)">edit</button></li>
     <li class="list-group-item"><button (click)="delete(ares)">delete</button></li>

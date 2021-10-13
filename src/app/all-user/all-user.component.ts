@@ -16,13 +16,11 @@ export class AllUserComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUserList().subscribe(res => {
       this.user = res
-      console.log(res[2].image);
+      console.log(res[0].image);
       
     });
   }
   delete(data) {
-    console.log(data._id)
-    // location.href="http://localhost:4200/#/users/"+data._id
     this.userService.deleteUser(data._id).subscribe(res => {
       location.reload();
         this.toasterService.pop('success', 'Success register');

@@ -69,7 +69,7 @@ export class UsersComponent implements OnInit {
         console.log(formData.get('image'));
         this.toasterService.pop('success', 'Success register', res.message);
         
-        // this.route.navigate(['/UserLogin'])
+        this.route.navigate(['/UserLogin'])
         console.log(res)
       }, error => {
         this.toasterService.pop('error', 'Error', error.error.message);
