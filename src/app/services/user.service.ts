@@ -16,6 +16,9 @@ export class UserService {
   create(body:any): Observable<any>{
     return this.http.post('http://localhost:3000/singup', body);
   }
+  update(body:any,_id: string): Observable<any>{
+    return this.http.put('http://localhost:3000/users' + `/${_id}` ,body);
+  }
   login(body:any): Observable<any>{
     return this.http.post('http://localhost:3000/singin', body);
   }
@@ -29,7 +32,9 @@ export class UserService {
   changePass(body:any) {
     return this.http.patch('http://localhost:3000/:token/:userId' ,body);
   }
-
+ getUserbyId(_id: string) {
+    return this.http.get(`http://localhost:3000/users/${_id}`);
+  }
   deleteUser(_id: string) {
     return this.http.delete('http://localhost:3000/users' + `/${_id}`);
   }

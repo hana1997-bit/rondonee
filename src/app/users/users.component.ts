@@ -43,32 +43,24 @@ export class UsersComponent implements OnInit {
      this.file = event.target.files[0];
     console.log(this.file);
     this.form.value.img=this.file
+    console.log(this.file.name);
+    localStorage.setItem('image',this.file.name)
+    
     
 }
   submitForm() {
     const formData =new FormData();
-    // console.log(this.form.value.img);
-    // console.log(this.file,this.file.name);
-    
-    
-    formData.append('image', this.file,this.file.name)
-    formData.append('firstName',this.form.get('firstName').value)
-    formData.append('lastName',this.form.get('lastName').value)
-    formData.append('age',this.form.get('age').value)
-    formData.append('email',this.form.get('email').value)
-    formData.append('phone',this.form.get('phone').value)
-    formData.append('password',this.form.get('password').value)
-
-
-
-    // this.form.value.img = fd
+    formData.append('image', this.file,this.file.name);
+    formData.append('firstName',this.form.get('firstName').value);
+    formData.append('lastName',this.form.get('lastName').value);
+    formData.append('age',this.form.get('age').value);
+    formData.append('email',this.form.get('email').value);
+    formData.append('phone',this.form.get('phone').value);
+    formData.append('password',this.form.get('password').value);
     this.userService.create(formData).subscribe(
-      
-      
       res => {
         console.log(formData.get('image'));
         this.toasterService.pop('success', 'Success register', res.message);
-        
         this.route.navigate(['/UserLogin'])
         console.log(res)
       }, error => {

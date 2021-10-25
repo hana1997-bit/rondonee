@@ -36,6 +36,7 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { NewPasswordComponent } from './new-password/new-password.component';
 import { AllUserComponent } from './all-user/all-user.component';
+import { UploadComponent } from './upload/upload.component';
 
 @NgModule({
   imports: [
@@ -67,7 +68,8 @@ import { AllUserComponent } from './all-user/all-user.component';
     UserLoginComponent,
     ResetPasswordComponent,
     NewPasswordComponent,
-    AllUserComponent
+    AllUserComponent,
+    UploadComponent
   ],
   providers: [{
     provide: LocationStrategy,

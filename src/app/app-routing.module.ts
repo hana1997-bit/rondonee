@@ -6,6 +6,7 @@ import { AllUserComponent } from './all-user/all-user.component';
 import { DefaultLayoutComponent } from './containers';
 import { NewPasswordComponent } from './new-password/new-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { UploadComponent } from './upload/upload.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UsersComponent } from './users/users.component';
 
@@ -59,6 +60,10 @@ export const routes: Routes = [
   {
     path: 'newPass/:token/:id',
     component: NewPasswordComponent,
+  },
+  {
+    path: 'users/:id',
+    component: UploadComponent,
   },
   {
     path: 'UserRegister',
