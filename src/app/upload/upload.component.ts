@@ -10,53 +10,46 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./upload.component.css']
 })
 export class UploadComponent implements OnInit {
-  form: FormGroup;
+  updateform: FormGroup;
   file: File;
   user: any;
-  bla: any
-  img: any
+  // img: any
   constructor(private toasterService: ToasterService, private userService: UserService, private route: Router, private router: ActivatedRoute) { }
   ngOnInit(): void {
-    this.form = new FormGroup({
+    this.updateform = new FormGroup({
       firstName: new FormControl('', Validators.required),
-      image: new FormControl(''),
       lastName: new FormControl('', Validators.required),
-      age: new FormControl('', Validators.required),
-      phone: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
-      img: new FormControl(null, Validators.required),
+      phone: new FormControl('', [Validators.required,Validators.minLength(8)]),
+      // password: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
     });
-    this.user = {
-      id: this.router.snapshot.params['id']
-    }
-    console.log(this.form.value.firstName);
     this.userService.getUserbyId(this.router.snapshot.params['id']).subscribe(res => {
-      this.bla = res
+      this.user = res
       console.log(res);
-      this.bla.image=localStorage.getItem('image');
-    console.log(this.bla);
-    
-    })
-    
+      this.updateform.setValue({
+        firstName: this.user.firstName,
+        lastName: this.user.lastName,
+        phone: this.user.phone,
+        email: this.user.email,
+        // password: this.user.password,
+      });
+    });
   }
-  onChange(event) {
-    this.file = event.target.files[0];
-    // console.log(this.file);
-    this.form.value.img = this.file
+  // onChange(event) {
+  //   this.file = event.target.files[0];
+  //   // console.log(this.file);
+  //   this.updateform.value.img = this.file
 
-  }
+  // }
   submitForm() {
-    const formData = new FormData();
-    formData.append('image', this.file, this.file.name);
-    formData.append('firstName', this.form.get('firstName').value);
-    formData.append('lastName', this.form.get('lastName').value);
-    formData.append('age', this.form.get('age').value);
-    formData.append('email', this.form.get('email').value);
-    formData.append('phone', this.form.get('phone').value);
-    formData.append('password', this.form.get('password').value);
-    console.log(this.form.value.firstName);
-    this.userService.update(formData,this.router.snapshot.params['id']).subscribe(
+    // const formData = new FormData();
+    // formData.append('image', this.file, this.file.name);
+    // formData.append('firstName', this.updateform.get('firstName').value);
+    // formData.append('lastName', this.updateform.get('lastName').value);
+    // formData.append('email', this.updateform.get('email').value);
+    // formData.append('phone', this.updateform.get('phone').value);
+    // formData.append('password', this.updateform.get('password').value);
+    this.userService.update(this.updateform.value, this.router.snapshot.params['id']).subscribe(
       res => {
         // console.log(formData.get('image'));
         this.toasterService.pop('success', 'Success register', res.message);
@@ -67,7 +60,5 @@ export class UploadComponent implements OnInit {
         console.log(error);
       }
     );
-
-
   }
 }

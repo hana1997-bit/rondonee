@@ -1,5 +1,55 @@
-
-<div *ngIf="show">
+<div class="animated fadeIn">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <i class="fa fa-align-justify"></i> Combined All Table
+          </div>
+          <div class="card-body">
+            <table class="table table-bordered table-striped table-sm">
+              <thead>
+                <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Age</th>
+                  <th>Phone</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr  *ngFor='let ares of user'>
+                  <td>{{ares.firstName}}</td>
+                  <td>{{ares.lastName}}</td>
+                  <td>{{ares.age}}</td>
+                  <td>{{ares.phone}}</td>
+                  <td>{{ares.email}}</td>
+                  <td>{{ares.role}}</td>
+                  <td><button type="button" class="btn btn-block btn-outline-success " (click)="edit(ares)">edit</button></td>
+                  <td><button type="button" class="btn btn-block btn-outline-danger" (click)="delete(ares)">delete</button></td>
+                </tr>
+                
+              </tbody>
+            </table>
+            <nav>
+              <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                <li class="page-item active">
+                  <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <!--/.col-->
+    </div>
+  </div>
+<!-- <div *ngIf="show">
     <ul class="list-group" *ngFor='let ares of user' >
         <li class="list-group-item">{{ares.firstName}}</li>
         <li class="list-group-item">{{ares.lastName}}</li>
@@ -10,6 +60,6 @@
         <li class="list-group-item"><button (click)="edit(ares)">edit</button></li>
         <li class="list-group-item"><button (click)="delete(ares)">delete</button></li>
     </ul>
-</div>
+</div> -->
 
 

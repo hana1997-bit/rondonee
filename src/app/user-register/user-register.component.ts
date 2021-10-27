@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToasterService } from 'angular2-toaster';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-users',
-  templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css'],
-  providers: [UserService],
+  selector: 'app-user-register',
+  templateUrl: './user-register.component.html',
+  styleUrls: ['./user-register.component.css']
 })
-export class UsersComponent implements OnInit {
+export class UserRegisterComponent implements OnInit {
   file:File;
   form: FormGroup;
 
@@ -19,10 +19,9 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
     this.form = new FormGroup({
       firstName: new FormControl('', Validators.required),
-      image:new FormControl(''),
+      // image:new FormControl(''),
       lastName: new FormControl('', Validators.required),
-      age: new FormControl('', Validators.required),
-      phone: new FormControl('', Validators.required),
+      phone: new FormControl('', [Validators.required,Validators.minLength(8)]),
       password: new FormControl('', Validators.required),
       img: new FormControl(null,Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -49,17 +48,15 @@ export class UsersComponent implements OnInit {
     
 }
   submitForm() {
-    const formData =new FormData();
-    formData.append('image', this.file,this.file.name);
-    formData.append('firstName',this.form.get('firstName').value);
-    formData.append('lastName',this.form.get('lastName').value);
-    formData.append('age',this.form.get('age').value);
-    formData.append('email',this.form.get('email').value);
-    formData.append('phone',this.form.get('phone').value);
-    formData.append('password',this.form.get('password').value);
-    this.userService.create(formData).subscribe(
+    // const formData =new FormData();
+    // formData.append('image', this.file,this.file.name);
+    // formData.append('firstName',this.form.get('firstName').value);
+    // formData.append('lastName',this.form.get('lastName').value);
+    // formData.append('email',this.form.get('email').value);
+    // formData.append('phone',this.form.get('phone').value);
+    // formData.append('password',this.form.get('password').value);
+    this.userService.create(this.form.value).subscribe(
       res => {
-        console.log(formData.get('image'));
         this.toasterService.pop('success', 'Success register', res.message);
         this.route.navigate(['/UserLogin'])
         console.log(res)
@@ -68,10 +65,6 @@ export class UsersComponent implements OnInit {
         console.log(error);
       }
     );
-    
-
   }
 }
   
-
- 

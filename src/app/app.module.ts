@@ -29,7 +29,6 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { ToasterModule, ToasterService } from 'angular2-toaster';
-import { UsersComponent } from './users/users.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UserLoginComponent } from './user-login/user-login.component';
@@ -37,6 +36,8 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { NewPasswordComponent } from './new-password/new-password.component';
 import { AllUserComponent } from './all-user/all-user.component';
 import { UploadComponent } from './upload/upload.component';
+import { UserRegisterComponent } from './user-register/user-register.component';
+import { ModifierPassComponent } from './modifier-pass/modifier-pass.component';
 
 @NgModule({
   imports: [
@@ -64,12 +65,13 @@ import { UploadComponent } from './upload/upload.component';
     P500Component,
     LoginComponent,
     RegisterComponent,
-    UsersComponent,
     UserLoginComponent,
     ResetPasswordComponent,
     NewPasswordComponent,
     AllUserComponent,
-    UploadComponent
+    UploadComponent,
+    UserRegisterComponent,
+    ModifierPassComponent
   ],
   providers: [{
     provide: LocationStrategy,

@@ -8,12 +8,11 @@ import { NewPasswordComponent } from './new-password/new-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { UploadComponent } from './upload/upload.component';
 import { UserLoginComponent } from './user-login/user-login.component';
-import { UsersComponent } from './users/users.component';
+import { UserRegisterComponent } from './user-register/user-register.component';
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
-import { RegisterComponent } from './views/register/register.component';
 
 export const routes: Routes = [
   {
@@ -37,16 +36,9 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent,
+    component: UserLoginComponent,
     data: {
       title: 'Login Page'
-    }
-  },
-  {
-    path: 'register',
-    component: RegisterComponent,
-    data: {
-      title: 'Register Page'
     }
   },
   {
@@ -67,7 +59,7 @@ export const routes: Routes = [
   },
   {
     path: 'UserRegister',
-    component: UsersComponent,
+    component: UserRegisterComponent,
     data: {
       title: 'Register user'
     }
