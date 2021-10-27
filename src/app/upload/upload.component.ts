@@ -41,6 +41,9 @@ export class UploadComponent implements OnInit {
   //   this.updateform.value.img = this.file
 
   // }
+  change(){
+    location.href="http://localhost:4200/#/modifier/" + this.router.snapshot.params['id'];
+  }
   submitForm() {
     // const formData = new FormData();
     // formData.append('image', this.file, this.file.name);
@@ -60,5 +63,6 @@ export class UploadComponent implements OnInit {
         console.log(error);
       }
     );
+    location.reload();
   }
 }

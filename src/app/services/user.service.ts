@@ -28,7 +28,9 @@ export class UserService {
   getUserList() {
     return this.http.get('http://localhost:3000/users');
   }
-
+  modifier(body:any,_id: string): Observable<any>{
+    return this.http.put('http://localhost:3000/pass' + `/${_id}` ,body);
+  }
   changePass(body:any) {
     return this.http.patch('http://localhost:3000/:token/:userId' ,body);
   }

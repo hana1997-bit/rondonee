@@ -61,8 +61,6 @@ export class AllUserComponent implements OnInit {
   // }
   edit(data) {
     location.href="http://localhost:4200/#/users/"+data._id
-    
-
   }
   delete(data) {
     this.userService.deleteUser(data._id).subscribe(res => {

@@ -58,7 +58,7 @@ export class UserRegisterComponent implements OnInit {
     this.userService.create(this.form.value).subscribe(
       res => {
         this.toasterService.pop('success', 'Success register', res.message);
-        this.route.navigate(['/UserLogin'])
+        this.route.navigate(['/login'])
         console.log(res)
       }, error => {
         this.toasterService.pop('error', 'Error', error.error.message);

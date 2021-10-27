@@ -4,6 +4,7 @@ import { AllUserComponent } from './all-user/all-user.component';
 
 // Import Containers
 import { DefaultLayoutComponent } from './containers';
+import { ModifierPassComponent } from './modifier-pass/modifier-pass.component';
 import { NewPasswordComponent } from './new-password/new-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { UploadComponent } from './upload/upload.component';
@@ -58,19 +59,23 @@ export const routes: Routes = [
     component: UploadComponent,
   },
   {
-    path: 'UserRegister',
+    path: 'register',
     component: UserRegisterComponent,
     data: {
       title: 'Register user'
     }
   },
   {
-    path: 'UserLogin',
-    component: UserLoginComponent,
-    data: {
-      title: 'Login user'
-    }
+    path:'modifier/:id',
+    component:ModifierPassComponent
   },
+  // {
+  //   path: 'UserLogin',
+  //   component: UserLoginComponent,
+  //   data: {
+  //     title: 'Login user'
+  //   }
+  // },
   {
     path: '',
     component: DefaultLayoutComponent,
