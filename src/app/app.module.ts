@@ -31,13 +31,16 @@ import { ChartsModule } from 'ng2-charts';
 import { ToasterModule, ToasterService } from 'angular2-toaster';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { UserLoginComponent } from './user-login/user-login.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { NewPasswordComponent } from './new-password/new-password.component';
+// import { ResetPasswordComponent } from './reset-password/reset-password.component';
+// import { NewPasswordComponent } from './new-password/new-password.component';
 import { AllUserComponent } from './all-user/all-user.component';
-import { UploadComponent } from './upload/upload.component';
-import { UserRegisterComponent } from './user-register/user-register.component';
-import { ModifierPassComponent } from './modifier-pass/modifier-pass.component';
+// import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { NewPasswordComponent } from './views/edit-users/new-password/new-password.component';
+import { UploadComponent } from './views/edit-users/upload/upload.component';
+import { ModifierPassComponent } from './views/edit-users/modifier-pass/modifier-pass.component';
+import { ResetPasswordComponent } from './views/edit-users/reset-password/reset-password.component';
+// import { UploadComponent } from './upload/upload.component';
+// import { ModifierPassComponent } from './modifier-pass/modifier-pass.component';
 
 @NgModule({
   imports: [
@@ -65,12 +68,10 @@ import { ModifierPassComponent } from './modifier-pass/modifier-pass.component';
     P500Component,
     LoginComponent,
     RegisterComponent,
-    UserLoginComponent,
     ResetPasswordComponent,
     NewPasswordComponent,
     AllUserComponent,
     UploadComponent,
-    UserRegisterComponent,
     ModifierPassComponent
   ],
   providers: [{

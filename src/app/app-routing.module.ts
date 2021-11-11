@@ -4,16 +4,18 @@ import { AllUserComponent } from './all-user/all-user.component';
 
 // Import Containers
 import { DefaultLayoutComponent } from './containers';
-import { ModifierPassComponent } from './modifier-pass/modifier-pass.component';
-import { NewPasswordComponent } from './new-password/new-password.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { UploadComponent } from './upload/upload.component';
-import { UserLoginComponent } from './user-login/user-login.component';
-import { UserRegisterComponent } from './user-register/user-register.component';
-
+import { ModifierPassComponent } from './views/edit-users/modifier-pass/modifier-pass.component';
+// import { ModifierPassComponent } from './modifier-pass/modifier-pass.component';
+// import { NewPasswordComponent } from './views/edit-users/new-password/new-password.component';
+// import { UploadComponent } from './upload/upload.component';
+import { NewPasswordComponent } from './views/edit-users/new-password/new-password.component';
+import { ResetPasswordComponent } from './views/edit-users/reset-password/reset-password.component';
+import { UploadComponent } from './views/edit-users/upload/upload.component';
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
+import { RegisterComponent } from './views/register/register.component';
+
 
 export const routes: Routes = [
   {
@@ -37,7 +39,7 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    component: UserLoginComponent,
+    component: LoginComponent,
     data: {
       title: 'Login Page'
     }
@@ -52,7 +54,7 @@ export const routes: Routes = [
   },
   {
     path: 'newPass/:token/:id',
-    component: NewPasswordComponent,
+    component:NewPasswordComponent,
   },
   {
     path: 'users/:id',
@@ -60,7 +62,7 @@ export const routes: Routes = [
   },
   {
     path: 'register',
-    component: UserRegisterComponent,
+    component:RegisterComponent,
     data: {
       title: 'Register user'
     }
@@ -69,13 +71,6 @@ export const routes: Routes = [
     path:'modifier/:id',
     component:ModifierPassComponent
   },
-  // {
-  //   path: 'UserLogin',
-  //   component: UserLoginComponent,
-  //   data: {
-  //     title: 'Login user'
-  //   }
-  // },
   {
     path: '',
     component: DefaultLayoutComponent,
