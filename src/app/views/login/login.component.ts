@@ -24,11 +24,16 @@ export class LoginComponent implements OnInit {
       this.toasterService.pop('success', 'Success Login', res.message);
         console.log(res);
         localStorage.setItem('token', res.token);
+        localStorage.setItem('user',res._id);
       }, error => {
         // this.toasterService.pop('error', 'Error', res.message);
         console.log(error);
       }
     );
+    
+    // localStorage.setItem('user',this.);
+
+    location.href="/#";
   }
 
 }

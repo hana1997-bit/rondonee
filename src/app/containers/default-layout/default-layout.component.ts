@@ -1,7 +1,9 @@
 import { Component, OnDestroy, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { navItems } from '../../_nav';
-
+import {ActivatedRoute, Router } from '@angular/router';
+import { ToasterService } from 'angular2-toaster';
+import { EventService } from '../../services/event.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +14,10 @@ export class DefaultLayoutComponent implements OnDestroy {
   public sidebarMinimized = true;
   private changes: MutationObserver;
   public element: HTMLElement;
-  constructor(@Inject(DOCUMENT) _document?: any) {
+  log="";
+  events:any=[];
+  show="";
+  constructor(private toasterService: ToasterService,private eventServer:EventService,private router: Router,@Inject(DOCUMENT) _document?: any) {
 
     this.changes = new MutationObserver((mutations) => {
       this.sidebarMinimized = _document.body.classList.contains('sidebar-minimized');
@@ -26,5 +31,22 @@ export class DefaultLayoutComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     this.changes.disconnect();
+  }
+  ngOnInit(): void {
+    this.log=localStorage.getItem('user');
+    this.eventServer.getEventList().subscribe(res => {
+      this.events = res
+      // console.log(this.events[1].imgs[0]);
+      
+    });
+
+  }
+  voir(data){
+    location.href="http://localhost:4200/#/event/"+data._id;
+
+  }
+  out(){
+    localStorage.removeItem("user");
+    this.router.navigateByUrl('/#');
   }
 }

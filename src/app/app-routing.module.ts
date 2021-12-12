@@ -4,6 +4,7 @@ import { AllUserComponent } from './all-user/all-user.component';
 
 // Import Containers
 import { DefaultLayoutComponent } from './containers';
+import { AddEventComponent } from './views/event/add-event/add-event.component';
 import { ModifierPassComponent } from './views/edit-users/modifier-pass/modifier-pass.component';
 // import { ModifierPassComponent } from './modifier-pass/modifier-pass.component';
 // import { NewPasswordComponent } from './views/edit-users/new-password/new-password.component';
@@ -15,6 +16,9 @@ import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
+import { AfficheEventComponent } from './views/event/affiche-event/affiche-event.component';
+import { EditEventComponent } from './views/event/edit-event/edit-event.component';
+import { NewReserveComponent } from './views/reserve/new-reserve/new-reserve.component';
 
 
 export const routes: Routes = [
@@ -53,6 +57,22 @@ export const routes: Routes = [
     component: AllUserComponent,
   },
   {
+    path: 'event/:id',
+    component: AfficheEventComponent,
+  },
+  {
+    path: 'reserve',
+    component: NewReserveComponent,
+  },
+  {
+    path: 'agents/:id',
+    component: EditEventComponent,
+  },
+  {
+    path: 'add',
+    component:AddEventComponent,
+  },
+  {
     path: 'newPass/:token/:id',
     component:NewPasswordComponent,
   },
@@ -70,6 +90,10 @@ export const routes: Routes = [
   {
     path:'modifier/:id',
     component:ModifierPassComponent
+  },
+  {
+    path:'event',
+    component:AddEventComponent
   },
   {
     path: '',

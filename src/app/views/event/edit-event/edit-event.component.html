@@ -1,0 +1,84 @@
+<div class="app-body">
+    <main class="main d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card mx-4">
+                        <div *ngIf="!visible">
+                            <input type="number" [(ngModel)]="numm" >
+                            <button class="btn btn-block btn-default">Vérifier</button>
+                        </div>
+                        <div class="card-body p-4" *ngIf="visible">
+                            <form [formGroup]="form">
+                                <h1>Modifier l'evenement</h1>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"></span>
+                                    </div>
+                                    <input type="number" formControlName="num" class="form-control"
+                                        placeholder="identifiant ">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-picture-o"></i></span>
+                                    </div>
+                                    <input type="file" (change)="onChange($event)" formControlName="imgs" multiple
+                                        class="form-control" placeholder="photo ">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i
+                                                class="icon-frame icons font-2xl d-block mt-4"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" formControlName="evenement"
+                                        placeholder="Type de l'evenement" required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i
+                                                class="icon-clock icons font-2xl d-block mt-4"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre de place"
+                                        required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i
+                                                class="icon-clock icons font-2xl d-block mt-4"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" formControlName="temps" placeholder="temps"
+                                        required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i
+                                                class="icon-clock icons font-2xl d-block mt-4"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" formControlName="prix" placeholder="prix"
+                                        required>
+                                </div>
+                                <div class="input-group mb-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="icon-phone"></i></span>
+                                    </div>
+                                    <input type="number" class="form-control" formControlName="phone"
+                                        placeholder="phone" required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i
+                                                class="icon-compass icons font-2xl d-block mt-4"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" formControlName="localisation"
+                                        placeholder="localisation" required>
+                                </div>
+
+                                <button type="button" (click)="submitForm()" class="btn btn-block btn-success">Modifier</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

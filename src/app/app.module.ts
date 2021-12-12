@@ -39,6 +39,11 @@ import { NewPasswordComponent } from './views/edit-users/new-password/new-passwo
 import { UploadComponent } from './views/edit-users/upload/upload.component';
 import { ModifierPassComponent } from './views/edit-users/modifier-pass/modifier-pass.component';
 import { ResetPasswordComponent } from './views/edit-users/reset-password/reset-password.component';
+import { AddEventComponent } from './views/event/add-event/add-event.component';
+import { EditEventComponent } from './views/event/edit-event/edit-event.component';
+import { AfficheEventComponent } from './views/event/affiche-event/affiche-event.component';
+import { ToutReserveComponent } from './views/reserve/tout-reserve/tout-reserve.component';
+import { NewReserveComponent } from './views/reserve/new-reserve/new-reserve.component';
 // import { UploadComponent } from './upload/upload.component';
 // import { ModifierPassComponent } from './modifier-pass/modifier-pass.component';
 
@@ -72,7 +77,12 @@ import { ResetPasswordComponent } from './views/edit-users/reset-password/reset-
     NewPasswordComponent,
     AllUserComponent,
     UploadComponent,
-    ModifierPassComponent
+    ModifierPassComponent,
+    AddEventComponent,
+    EditEventComponent,
+    AfficheEventComponent,
+    ToutReserveComponent,
+    NewReserveComponent
   ],
   providers: [{
     provide: LocationStrategy,
