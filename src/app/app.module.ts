@@ -44,7 +44,10 @@ import { EditEventComponent } from './views/event/edit-event/edit-event.componen
 import { AfficheEventComponent } from './views/event/affiche-event/affiche-event.component';
 import { ToutReserveComponent } from './views/reserve/tout-reserve/tout-reserve.component';
 import { NewReserveComponent } from './views/reserve/new-reserve/new-reserve.component';
-// import { UploadComponent } from './upload/upload.component';
+import { UserEventComponent } from './views/user-event/user-event.component';
+import { CarouselConfig, CarouselModule } from 'ngx-bootstrap/carousel';
+import { NgbCarouselConfig, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 // import { ModifierPassComponent } from './modifier-pass/modifier-pass.component';
 
 @NgModule({
@@ -64,7 +67,9 @@ import { NewReserveComponent } from './views/reserve/new-reserve/new-reserve.com
     ToasterModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule,
+    Ng2SearchPipeModule,
   ],
   declarations: [
     AppComponent,
@@ -82,7 +87,8 @@ import { NewReserveComponent } from './views/reserve/new-reserve/new-reserve.com
     EditEventComponent,
     AfficheEventComponent,
     ToutReserveComponent,
-    NewReserveComponent
+    NewReserveComponent,
+    UserEventComponent
   ],
   providers: [{
     provide: LocationStrategy,

@@ -19,6 +19,7 @@ import { RegisterComponent } from './views/register/register.component';
 import { AfficheEventComponent } from './views/event/affiche-event/affiche-event.component';
 import { EditEventComponent } from './views/event/edit-event/edit-event.component';
 import { NewReserveComponent } from './views/reserve/new-reserve/new-reserve.component';
+import { UserEventComponent } from './views/user-event/user-event.component';
 
 
 export const routes: Routes = [
@@ -55,6 +56,10 @@ export const routes: Routes = [
   {
     path: 'all',
     component: AllUserComponent,
+  },
+  {
+    path: 'UserEvent',
+    component: UserEventComponent,
   },
   {
     path: 'event/:id',

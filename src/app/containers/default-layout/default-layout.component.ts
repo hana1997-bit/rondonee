@@ -7,7 +7,8 @@ import { EventService } from '../../services/event.service';
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: './default-layout.component.html'
+  templateUrl: './default-layout.component.html',
+  styleUrls: ['./default-layout.component.css']
 })
 export class DefaultLayoutComponent implements OnDestroy {
   public navItems = navItems;
@@ -17,6 +18,7 @@ export class DefaultLayoutComponent implements OnDestroy {
   log="";
   events:any=[];
   show="";
+  searchText;
   constructor(private toasterService: ToasterService,private eventServer:EventService,private router: Router,@Inject(DOCUMENT) _document?: any) {
 
     this.changes = new MutationObserver((mutations) => {

@@ -18,12 +18,16 @@ export class AfficheEventComponent implements OnInit {
   form: FormGroup;
   send = 0
   tab: any = [];
+  images = [];
 
   constructor(private toasterService: ToasterService, private reserveService: ReserveService, private eventServer: EventService, private router: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.eventServer.getEventListById(this.router.snapshot.params['id']).subscribe(res => {
       this.events = res
+      this.images=this.events.imgs;
+      console.log(this.images);
+      
       console.log(this.events);
       this.send = this.events.nombre;
       console.log(this.send);

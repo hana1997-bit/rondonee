@@ -1,0 +1,24 @@
+<div class="animated fadeIn">
+    <div class="card" *ngFor="let item of events">
+        <div class="card-body">
+            <div class="card-body">
+                <div class="bd-example bd-example-type">
+                    <div class="bd-example">
+                        <dl class="row">
+                            <dt class="col-sm-3">Nom de l'evenement: </dt>
+                            <dd class="col-sm-9">{{item.evenement}} DT.</dd>
+                        </dl>
+                    </div>
+                    <td *ngIf="item.nombre"><button type="button"
+                            class="btn btn-block btn-outline-success">Disponible</button>
+                    </td>
+                    <td *ngIf="!item.nombre"><button type="button" class="btn btn-block btn-success">Complet</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-block btn-outline-secondary " *ngIf="show"
+                            (click)="edit(item)">Voir Plus</button>
+                    </td>
+                </div>
+            </div>
+        </div>
+    </div>

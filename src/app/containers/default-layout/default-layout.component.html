@@ -7,10 +7,10 @@
       <a class="nav-link" href="#/add" *ngIf="log">Ajouter un event</a>
     </li>
     <li class="nav-item px-3">
-      <a class="nav-link" routerLink="all">Users</a>
+      <a class="nav-link" routerLink="all" *ngIf="log">Users</a>
     </li>
     <li class="nav-item px-3">
-      <a class="nav-link" href="#">Settings</a>
+      <a class="nav-link" href="#/UserEvent" *ngIf="log">Evenements</a>
     </li>
   </ul>
   <ul class="nav navbar-nav ml-auto">
@@ -21,19 +21,24 @@
       <a class="nav-link" href="#/login">Login</a>
     </li>
     <li class="nav-item px-3" *ngIf="log">
-      <a class="nav-link" (click)="out()">Déconnexion</a>
+      <button class="nav-link" (click)="out()">Déconnexion</button>
     </li>
     <li class="nav-item d-md-down-none">
       <a class="nav-link" href="#"><i class="icon-location-pin"></i></a>
     </li>
   </ul>
+
 </app-header>
 <div class="app-body">
-  <div class="col-sm-7 col-md-5">
+  <div class="col">
     <div class="card">
       <div class="card-body">
         <div class="row">
-          <div class="col-sm-6" *ngFor="let item of events">
+          <img class="image" src="../../../assets/img/image/Homepage-top-long-3-nashville-1024x528.png" alt="">
+          <div class="form-group mt-3" >
+            <input type="text" name="searchsText"  placeholder="Search" [(ngModel)]="searchText">
+          </div>
+          <div class="col-sm-4" *ngFor="let item of events | filter:searchText">
             <div class="card">
               <div class="card-header text-center">
                 <h4>{{item.evenement}}</h4>
