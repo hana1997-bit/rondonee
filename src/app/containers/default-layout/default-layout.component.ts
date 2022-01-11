@@ -17,7 +17,6 @@ export class DefaultLayoutComponent implements OnDestroy {
   public element: HTMLElement;
   log="";
   events:any=[];
-  show="";
   searchText;
   constructor(private toasterService: ToasterService,private eventServer:EventService,private router: Router,@Inject(DOCUMENT) _document?: any) {
 

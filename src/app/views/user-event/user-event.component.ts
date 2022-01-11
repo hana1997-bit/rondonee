@@ -28,7 +28,8 @@ export class UserEventComponent implements OnInit {
         }
       }
       if (this.events.length===0) {
-        alert('aucun evenement créer par vous')
+        alert('aucun evenement créer par vous');
+        location.href='#'
       }
     });
   }

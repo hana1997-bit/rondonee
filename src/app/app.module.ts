@@ -46,8 +46,9 @@ import { ToutReserveComponent } from './views/reserve/tout-reserve/tout-reserve.
 import { NewReserveComponent } from './views/reserve/new-reserve/new-reserve.component';
 import { UserEventComponent } from './views/user-event/user-event.component';
 import { CarouselConfig, CarouselModule } from 'ngx-bootstrap/carousel';
-import { NgbCarouselConfig, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { OwlModule } from 'ngx-owl-carousel';
 // import { ModifierPassComponent } from './modifier-pass/modifier-pass.component';
 
 @NgModule({
@@ -68,7 +69,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgbModule,
+    OwlModule,
     Ng2SearchPipeModule,
   ],
   declarations: [

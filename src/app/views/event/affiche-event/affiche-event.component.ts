@@ -14,11 +14,13 @@ export class AfficheEventComponent implements OnInit {
   events: any = [];
   tabRes: any = [];
   show = false;
+  showad = false;
   reserver = true;
   form: FormGroup;
   send = 0
   tab: any = [];
   images = [];
+  homeSlider={items:1,dots:true,nav:true}
 
   constructor(private toasterService: ToasterService, private reserveService: ReserveService, private eventServer: EventService, private router: ActivatedRoute) { }
 
@@ -33,6 +35,10 @@ export class AfficheEventComponent implements OnInit {
       console.log(this.send);
       if (this.events.user == localStorage.getItem('user')) {
         this.show = true;
+        this.showad=true;
+      }
+      else if(this.events.user == "61ce344274bce70fe6915542") {
+        this.showad=true;
       }
     });
     this.form = new FormGroup({

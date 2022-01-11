@@ -11,61 +11,37 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AllUserComponent implements OnInit {
   user: any;
-  show=true;
+  show = true;
   form: FormGroup;
   file: File;
+  admin = false;
+  profil:any;
   constructor(private toasterService: ToasterService, private userService: UserService, private route: Router) { }
   ngOnInit(): void {
     this.userService.getUserList().subscribe(res => {
-      this.user = res
+      this.user = res;
     });
-    this.form = new FormGroup({
-      firstName: new FormControl('', Validators.required),
-      image: new FormControl(''),
-      lastName: new FormControl('', Validators.required),
-      age: new FormControl('', Validators.required),
-      phone: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
-      img: new FormControl(null, Validators.required),
-      email: new FormControl('', [Validators.required, Validators.email]),
-    })
+    // if (localStorage.getItem('user') == "61ce344274bce70fe6915542") {
+    //   this.admin = true;
+    // }
+    this.userService.getUserbyId(localStorage.getItem('user')).subscribe(res => {
+      this.profil = res;
+    });
   }
-  onChange(event) {
-    this.file = event.target.files[0];
-    console.log(this.file);
-    this.form.value.img = this.file
 
-  }
-  // submitForm() {
-  //   const formData = new FormData();
-  //   formData.append('image', this.file, this.file.name);
-  //   formData.append('firstName', this.form.get('firstName').value);
-  //   formData.append('lastName', this.form.get('lastName').value);
-  //   formData.append('age', this.form.get('age').value);
-  //   formData.append('email', this.form.get('email').value);
-  //   formData.append('phone', this.form.get('phone').value);
-  //   formData.append('password', this.form.get('password').value);
-  //   this.userService.getUserList(formData).subscribe(
-  //     res => {
-  //       console.log(formData.get('image'));
-  //       this.toasterService.pop('success', 'Success register', res.message);
-  //       // this.route.navigate(['/UserLogin'])
-  //       console.log(res)
-  //     }, error => {
-  //       this.toasterService.pop('error', 'Error', error.error.message);
-  //       console.log(error);
-  //     }
-  //   );
-
-
-  // }
+  isAdmin(user) {
+    return user._id === "61ce344274bce70fe6915542";
+    }
+    modifier(user){
+      return user._id===localStorage.getItem('user')
+    }
   edit(data) {
-    location.href="http://localhost:4200/#/users/"+data._id
+    location.href = "http://localhost:4200/#/users/" + data._id
   }
   delete(data) {
     this.userService.deleteUser(data._id).subscribe(res => {
       location.reload();
-        this.toasterService.pop('success', 'Success register');
+      this.toasterService.pop('success', 'Success register');
       console.log(res)
     }, error => {
       this.toasterService.pop('error', 'Error', error.error.message);
