@@ -23,17 +23,24 @@ export class LoginComponent implements OnInit {
       res => {
       this.toasterService.pop('success', 'Success Login', res.message);
         console.log(res);
-        localStorage.setItem('token', res.token);
-        localStorage.setItem('user',res._id);
+        alert(res.message)
+        if (res.message==="authetification successful") {
+          location.href="http://localhost:4200/#/dashboard#";
+          localStorage.setItem('token', res.token);
+           localStorage.setItem('user',res._id);
+        }
+        // else{
+        //   alert(res.message)
+        // }
+        
       }, error => {
-        // this.toasterService.pop('error', 'Error', res.message);
+        this.toasterService.pop('error', 'Error');
         console.log(error);
+        alert(error.message)
+        location.reload()
       }
     );
     
-    // localStorage.setItem('user',this.);
-
-    location.href="/#";
   }
 
 }
