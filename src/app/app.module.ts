@@ -31,10 +31,7 @@ import { ChartsModule } from 'ng2-charts';
 import { ToasterModule, ToasterService } from 'angular2-toaster';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-// import { ResetPasswordComponent } from './reset-password/reset-password.component';
-// import { NewPasswordComponent } from './new-password/new-password.component';
 import { AllUserComponent } from './all-user/all-user.component';
-// import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { NewPasswordComponent } from './views/edit-users/new-password/new-password.component';
 import { UploadComponent } from './views/edit-users/upload/upload.component';
 import { ModifierPassComponent } from './views/edit-users/modifier-pass/modifier-pass.component';
@@ -45,11 +42,8 @@ import { AfficheEventComponent } from './views/event/affiche-event/affiche-event
 import { ToutReserveComponent } from './views/reserve/tout-reserve/tout-reserve.component';
 import { NewReserveComponent } from './views/reserve/new-reserve/new-reserve.component';
 import { UserEventComponent } from './views/user-event/user-event.component';
-import { CarouselConfig, CarouselModule } from 'ngx-bootstrap/carousel';
-import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { OwlModule } from 'ngx-owl-carousel';
-// import { ModifierPassComponent } from './modifier-pass/modifier-pass.component';
+import {CarouselModule} from 'ngx-owl-carousel-o';
 
 @NgModule({
   imports: [
@@ -69,8 +63,8 @@ import { OwlModule } from 'ngx-owl-carousel';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    OwlModule,
     Ng2SearchPipeModule,
+    CarouselModule
   ],
   declarations: [
     AppComponent,
@@ -89,7 +83,7 @@ import { OwlModule } from 'ngx-owl-carousel';
     AfficheEventComponent,
     ToutReserveComponent,
     NewReserveComponent,
-    UserEventComponent
+    UserEventComponent,
   ],
   providers: [{
     provide: LocationStrategy,

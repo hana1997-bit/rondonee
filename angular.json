@@ -29,9 +29,9 @@
               "node_modules/flag-icon-css/css/flag-icon.css",
               "node_modules/font-awesome/css/font-awesome.css",
               "node_modules/simple-line-icons/css/simple-line-icons.css",
-              "src/scss/style.scss",
-              "./node_modules/owl.carousel/dist/assets/owl.carousel.min.css",       
-               "./node_modules/owl.carousel/dist/assets/owl.theme.default.min.css"
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
+              "src/scss/style.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -41,8 +41,7 @@
             "scripts": [
               "node_modules/chart.js/dist/Chart.min.js",
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "./node_modules/owl.carousel/dist/owl.carousel.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },
           "configurations": {
